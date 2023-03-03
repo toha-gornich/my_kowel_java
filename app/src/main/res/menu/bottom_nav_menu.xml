@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--    android:enabled="true"-->
+    <!--    app:showAsAction="ifRoom"-->
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/menu_text_main"
+        />
+    <item
+        android:id="@+id/navigation_bazar"
+        android:icon="@drawable/ic_shop"
+        android:title="@string/menu_text_bazar"
+        />
+
+    <item
+        android:id="@+id/navigation_contacts"
+        android:icon="@drawable/ic_call"
+        android:title="@string/menu_text_telephone_book"
+        />
+    <item
+        android:id="@+id/navigation_events"
+        android:icon="@drawable/ic_device_message"
+        android:title="@string/menu_text_poster"
+        />
+</menu>

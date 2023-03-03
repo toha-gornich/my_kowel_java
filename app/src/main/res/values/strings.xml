@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">My Kowel</string>
+    <string name="welcome">Ласкаво просимо, ковельчанине</string>
+    <string name="button_login">Увійти</string>
+    <string name="button_reg">Зареєструватись</string>
+    <string name="descriptionTwoPart">Увійди щоби отримати доступ до системи</string>
+    <string name="descriptionOnePart">Помічник \"My Kovel\", радий тебе бачити Усе що тобі потрібно, відтепер у твоїй кишені Адже помічник створений спеціально для того, щоби ти мав усе необхідне в одному місці </string>
+
+    <string name="content_description_image_hello">hello</string>
+    <string name="content_description_image_registration">registration</string>
+    <string name="content_description_image_login">registration</string>
+
+    <string name="menu_text_main">Головна</string>
+    <string name="menu_text_bazar">Базар</string>
+    <string name="menu_text_news">Новини</string>
+    <string name="menu_text_poster">Афіша подій</string>
+    <string name="menu_text_telephone_book">Контакти</string>
+    <string name="text_sign_in">Вхід</string>
+    <string name="text_sign_up">Реєстрація</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="shared_preferences_user_data">dataAboutUser</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

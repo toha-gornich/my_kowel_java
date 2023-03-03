@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:state_enabled="true" android:state_focused="true"
+        android:drawable="@drawable/ic_sms_focused" />
+
+    <item android:drawable="@drawable/ic_sms" />
+</selector>
+
+
+<!--<item android:drawable="@drawable/ic_user_error" app:state_error="true"/>-->
+<!--<item android:state_error="true" android:drawable="@drawable/ic_user_error"/>-->
