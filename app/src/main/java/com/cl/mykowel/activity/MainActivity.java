@@ -3,11 +3,13 @@ package com.cl.mykowel.activity;
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_bazar, R.id.navigation_contacts,R.id.navigation_events)
+                R.id.navigation_home, R.id.navigation_bazar, R.id.navigation_contacts, R.id.navigation_events)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupWithNavController(binding.navView, navController);
@@ -47,10 +49,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
                 textView.setText(navDestination.getLabel());
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                if (fragmentManager.getBackStackEntryCount() > 0) {
+                    // Якщо є, повертаємося до попереднього фрагменту з back stack "myBackStack"
+                    fragmentManager.saveBackStack("replacement");
+//                    fragmentManager.popBackStack("replacement",1);
+
+                }
             }
         });
 
 
     }
+
+
 
 }
