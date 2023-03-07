@@ -17,6 +17,7 @@ import com.cl.mykowel.R;
 import com.cl.mykowel.activity.MainActivity;
 import com.cl.mykowel.activity.authorization.AuthorizationActivity;
 import com.cl.mykowel.model.model_my_kovel.model_user.User;
+
 @SuppressLint("SourceLockedOrientationActivity")
 
 public class RegActivity extends AppCompatActivity {
@@ -27,7 +28,7 @@ public class RegActivity extends AppCompatActivity {
     private EditText passwordEditText;
     private TextView textView;
 
-    private  RegActivityViewModel viewModel;
+    private RegActivityViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +37,11 @@ public class RegActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         //ініціалізація edit texts;
-        loginEditText = (EditText)findViewById(R.id.loginRegEditText);
-        nameEditText = (EditText)findViewById(R.id.nameRegEditText);
-        emailEditText = (EditText)findViewById(R.id.emailEditText);
-        phoneEditText = (EditText)findViewById(R.id.phone_numberEditText);
-        passwordEditText = (EditText)findViewById(R.id.passwordEditText);
+        loginEditText = (EditText) findViewById(R.id.loginRegEditText);
+        nameEditText = (EditText) findViewById(R.id.nameRegEditText);
+        emailEditText = (EditText) findViewById(R.id.emailEditText);
+        phoneEditText = (EditText) findViewById(R.id.phone_numberEditText);
+        passwordEditText = (EditText) findViewById(R.id.passwordEditText);
 
         textView = findViewById(R.id.textRegTextView);
         initViewModel();
@@ -56,11 +57,11 @@ public class RegActivity extends AppCompatActivity {
     // збирає дані із edit texts і створює обєкт класу User
 
     private void createNewUser() {
-        String login  = loginEditText.getText().toString();
-        String name  = nameEditText.getText().toString();
-        String email  = emailEditText.getText().toString();
-        String phone  = phoneEditText.getText().toString();
-        String password  = passwordEditText.getText().toString();
+        String login = loginEditText.getText().toString();
+        String name = nameEditText.getText().toString();
+        String email = emailEditText.getText().toString();
+        String phone = phoneEditText.getText().toString();
+        String password = passwordEditText.getText().toString();
         User user = new User(login, name, email, phone, password);
 
         viewModel.createNewUser(user, this);
@@ -87,71 +88,75 @@ public class RegActivity extends AppCompatActivity {
 
 
     public void RegUser(View view) {
-        if(loginEditText.length()==0){
+        if (loginEditText.length() == 0) {
 
             loginEditText.setBackgroundResource(R.drawable.edit_text_border_error);
-            loginEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_user_add_error,0,0,0);
+            loginEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_user_add_error, 0, 0, 0);
 
             loginEditText.setError("Заповніть це поле");
             return;
-        }else {changeBackground(loginEditText);
-            loginEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.selector_ic_login,0,0,0);
+        } else {
+            changeBackground(loginEditText);
+            loginEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.selector_ic_login, 0, 0, 0);
         }
 
 
-        if(nameEditText.length()==0){
+        if (nameEditText.length() == 0) {
 
             nameEditText.setBackgroundResource(R.drawable.edit_text_border_error);
-            nameEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_user_edit_text_error,0,0,0);
+            nameEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_user_edit_text_error, 0, 0, 0);
 
             nameEditText.setError("Заповніть це поле");
             return;
-        }else {changeBackground(nameEditText);
-            nameEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.selector_ic_name,0,0,0);
+        } else {
+            changeBackground(nameEditText);
+            nameEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.selector_ic_name, 0, 0, 0);
         }
 
-        if(emailEditText.length()==0){
+        if (emailEditText.length() == 0) {
 
             emailEditText.setBackgroundResource(R.drawable.edit_text_border_error);
-            emailEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_sms_error,0,0,0);
+            emailEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_sms_error, 0, 0, 0);
 
             emailEditText.setError("Заповніть це поле");
             return;
-        }else {changeBackground(emailEditText);
-            emailEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.selector_ic_email,0,0,0);
+        } else {
+            changeBackground(emailEditText);
+            emailEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.selector_ic_email, 0, 0, 0);
         }
 
 
-        if(phoneEditText.length()==0){
+        if (phoneEditText.length() == 0) {
 
             phoneEditText.setBackgroundResource(R.drawable.edit_text_border_error);
-            phoneEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_call_edit_text_error,0,0,0);
+            phoneEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_call_edit_text_error, 0, 0, 0);
 
             phoneEditText.setError("Заповніть це поле");
             return;
-        }else {changeBackground(phoneEditText);
-            phoneEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.selector_ic_phone,0,0,0);
+        } else {
+            changeBackground(phoneEditText);
+            phoneEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.selector_ic_phone, 0, 0, 0);
         }
 
 
-        if(passwordEditText.length()==0){
+        if (passwordEditText.length() == 0) {
 
             passwordEditText.setBackgroundResource(R.drawable.edit_text_border_error);
-            passwordEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_lock_error,0,0,0);
+            passwordEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_lock_error, 0, 0, 0);
 
             passwordEditText.setError("Заповніть це поле");
             return;
-        }else {changeBackground(passwordEditText);
-            passwordEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.selector_ic_password,0,0,0);
+        } else {
+            changeBackground(passwordEditText);
+            passwordEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.selector_ic_password, 0, 0, 0);
         }
-
-
 
 
         createNewUser();
         startActivity(new Intent(RegActivity.this, MainActivity.class));
     }
-    private void changeBackground(@NonNull EditText editText){
+
+    private void changeBackground(@NonNull EditText editText) {
         editText.setBackgroundResource(R.drawable.edit_text_border);
     }
 

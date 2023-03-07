@@ -26,6 +26,7 @@ public class User {
     private String is_admin;
 
 
+
 //    public User(String login, String name, String email, String phone, String password) {
 //        this.login = login;
 //        this.name = name;

@@ -8,6 +8,7 @@ import com.cl.mykowel.model.model_news.NewsApiResponse;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -39,10 +40,18 @@ public interface ApiService {
     Call<List<ItemContact>> getItemContact();
 
     //get request для отримання списку всіх запланованих подій
-    @GET("/events/get")
+    @GET("events/get")
     Call<List<ItemEvent>> getItemEvent();
 
     //get request для отримання списку всіх товарів викладеник bazar
-    @GET("/market/get")
+    @GET("market/get")
     Call<List<ItemBazar>> getItemBazar();
+
+    @POST("market/add")
+    @Multipart
+    Call<ItemBazar> postBazarAddItem(@Part("title")RequestBody title,
+                                     @Part("description")RequestBody description,
+                                     @Part("price")RequestBody price,
+                                     @Part("category")RequestBody category,
+                                     @Part MultipartBody.Part photo);
 }

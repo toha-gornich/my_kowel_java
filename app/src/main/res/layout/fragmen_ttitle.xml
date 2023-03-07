@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="@dimen/h1"
-        android:text="Initial Text" />
+        android:textSize="@dimen/h1" />
 
 </LinearLayout>

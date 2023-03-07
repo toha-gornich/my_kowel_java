@@ -17,11 +17,12 @@
     <string name="menu_text_telephone_book">Контакти</string>
     <string name="text_sign_in">Вхід</string>
     <string name="text_sign_up">Реєстрація</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="title_activity_main">MainActivity</string>
 
     <string name="shared_preferences_user_data">dataAboutUser</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_title_add_item_bazar">Нове</string>
+    <string name="txt_title">Заголовок оголошення</string>
+    <string name="txt_description">Опис</string>
+    <string name="txt_price">Ціна</string>
 
 </resources>

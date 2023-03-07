@@ -1,9 +1,7 @@
 package com.cl.mykowel.fragments.bazar;
 
-import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +13,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.loader.app.LoaderManager;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,10 +20,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.cl.mykowel.R;
 import com.cl.mykowel.databinding.FragmentBazarListBinding;
 import com.cl.mykowel.fragments.adapter.BazarRecyclerViewAdapter;
+import com.cl.mykowel.fragments.bazar.additembazar.AddItemBazar;
 import com.cl.mykowel.model.model_my_kovel.model_bazar.ItemBazar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,6 +89,8 @@ public class BazarFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
+        //кнопка додати воно створить фрагмент який перекриє цей
+        // а також створить стек із міткою replacement по якій можна буде повернути все назад
         floatingActionButton = view.findViewById(R.id.buttonAddItemBazar);
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -162,10 +160,6 @@ public class BazarFragment extends Fragment {
 
     }
 
-
-//    private void newItemBazar() {
-//
-//    }
 
 
 }

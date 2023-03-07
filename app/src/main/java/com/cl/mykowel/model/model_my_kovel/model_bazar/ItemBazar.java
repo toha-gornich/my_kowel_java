@@ -16,7 +16,7 @@ public class ItemBazar {
     private String description;
     @SerializedName("price")
     @Expose
-    private Double price;
+    private String price;
     @SerializedName("category")
     @Expose
     private String category;
@@ -29,6 +29,13 @@ public class ItemBazar {
     @SerializedName("checked")
     @Expose
     private Integer checked;
+
+    public ItemBazar(String title, String description, String price, String photo) {
+        this.title = title;
+        this.description = description;
+        this.price = price;
+        this.photo = photo;
+    }
 
     public Integer getId() {
         return id;
@@ -54,11 +61,11 @@ public class ItemBazar {
         this.description = description;
     }
 
-    public Double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

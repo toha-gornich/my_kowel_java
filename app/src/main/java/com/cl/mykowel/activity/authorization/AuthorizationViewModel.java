@@ -25,19 +25,16 @@ import retrofit2.Response;
 public class AuthorizationViewModel extends AndroidViewModel {
     //дивиться за активіті і записує все мутебул дані
 
-//    private UserRepository userRepository;
     private final MutableLiveData<User> createNewUserLiveData;
-//    private Context context;
-//    private User user;
+
     public AuthorizationViewModel(@NonNull  Application application) {
         super(application);
         createNewUserLiveData = new MutableLiveData<>();
-//        userRepository = new UserRepository();
 
     }
 
     public MutableLiveData<User> getCreateUserObserver(){
-//        return userRepository.getMutableLiveData(user, context);
+
         return createNewUserLiveData;
     }
 

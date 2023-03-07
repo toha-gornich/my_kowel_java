@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
                 if (fragmentManager.getBackStackEntryCount() > 0) {
                     // Якщо є, повертаємося до попереднього фрагменту з back stack "myBackStack"
                     fragmentManager.saveBackStack("replacement");
-//                    fragmentManager.popBackStack("replacement",1);
 
                 }
             }
