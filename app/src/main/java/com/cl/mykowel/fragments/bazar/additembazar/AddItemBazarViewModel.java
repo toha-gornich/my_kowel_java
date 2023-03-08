@@ -2,11 +2,14 @@ package com.cl.mykowel.fragments.bazar.additembazar;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
+import com.cl.mykowel.R;
 import com.cl.mykowel.model.model_my_kovel.model_bazar.ItemBazar;
 import com.cl.mykowel.model.model_my_kovel.model_user.User;
 import com.cl.mykowel.service.ApiService;
@@ -40,14 +43,17 @@ public class AddItemBazarViewModel extends AndroidViewModel {
     public  void createItemBazar(ItemBazar itemBazar, Context context){
         ApiService retroServiceInterface = RetroInstanceMyKowel.getKowelService();
         File file = new File(itemBazar.getPhoto());
-        MultipartBody.Part filePart = MultipartBody.Part.createFormData("file", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
+        SharedPreferences sharedPref = context.getSharedPreferences(String.valueOf(R.string.shared_preferences_user_data), Context.MODE_PRIVATE);
+        String id = sharedPref.getString("id","id");
+
+                MultipartBody.Part filePart = MultipartBody.Part.createFormData("file", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
 
 
 
 //        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
 //        MultipartBody.Part filePart = MultipartBody.Part.createFormData("file", file.getName(), requestBody);
 
-        Call<ItemBazar> call = retroServiceInterface.postBazarAddItem(createPartFromString(itemBazar.getTitle()), createPartFromString(itemBazar.getDescription()),createPartFromString(itemBazar.getPrice()),createPartFromString("0179"),filePart);
+        Call<ItemBazar> call = retroServiceInterface.postBazarAddItem(createPartFromString(itemBazar.getTitle()), createPartFromString(itemBazar.getDescription()),createPartFromString(itemBazar.getPrice()),createPartFromString("0179"),createPartFromString(id),filePart);
 
         call.enqueue(new Callback<ItemBazar>() {
             @Override

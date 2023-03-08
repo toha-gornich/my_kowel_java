@@ -53,5 +53,6 @@ public interface ApiService {
                                      @Part("description")RequestBody description,
                                      @Part("price")RequestBody price,
                                      @Part("category")RequestBody category,
+                                     @Part("user_id")RequestBody user_id,
                                      @Part MultipartBody.Part photo);
 }

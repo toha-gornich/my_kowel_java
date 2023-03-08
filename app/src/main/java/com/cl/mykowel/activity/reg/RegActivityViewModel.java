@@ -59,6 +59,7 @@ public class RegActivityViewModel extends ViewModel {
 
                     editor.clear();
                     editor.putBoolean("account_created", true);
+                    editor.putString("id", user1.getId());
                     editor.putString("login", user1.getLogin());
                     editor.putString("name", user1.getName());
                     editor.putString("phone", user1.getPhone());

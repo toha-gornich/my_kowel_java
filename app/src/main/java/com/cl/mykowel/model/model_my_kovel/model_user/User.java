@@ -3,6 +3,9 @@ package com.cl.mykowel.model.model_my_kovel.model_user;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 public class User {
+    @SerializedName("id")
+    @Expose
+    private String id;
     @SerializedName("login")
     @Expose
     private String login;
@@ -45,7 +48,8 @@ public class User {
 //        this.token = token;
 //        this.is_admin = is_admin;
     }
-    public User(String login, String name, String email, String phone, String password, String token) {
+    public User(String id, String login, String name, String email, String phone, String password, String token) {
+        this.id = id;
         this.login = login;
         this.name = name;
         this.email = email;
@@ -115,5 +119,13 @@ public class User {
 
     public void setIs_admin(String is_admin) {
         this.is_admin = is_admin;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

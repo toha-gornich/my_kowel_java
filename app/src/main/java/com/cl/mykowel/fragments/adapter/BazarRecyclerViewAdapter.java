@@ -43,7 +43,6 @@ public class BazarRecyclerViewAdapter extends RecyclerView.Adapter<BazarRecycler
         String imagePath = "" + bazars.get(position).getPhoto();
         Glide.with(context)
                 .load(imagePath)
-                .placeholder(R.drawable.progress_circle)
                 .into(holder.bazarImageView);
 
 
