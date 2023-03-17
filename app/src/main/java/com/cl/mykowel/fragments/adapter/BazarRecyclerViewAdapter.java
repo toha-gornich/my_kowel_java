@@ -1,6 +1,9 @@
 package com.cl.mykowel.fragments.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -13,6 +16,9 @@ import com.cl.mykowel.R;
 import com.cl.mykowel.databinding.FragmentBazarBinding;
 import com.cl.mykowel.model.model_my_kovel.model_bazar.ItemBazar;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 
@@ -38,12 +44,15 @@ public class BazarRecyclerViewAdapter extends RecyclerView.Adapter<BazarRecycler
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.titleTextView.setText(bazars.get(position).getTitle());
         holder.descriptionTextView.setText(bazars.get(position).getDescription());
-        holder.priceTextView.setText(bazars.get(position).getPrice().toString());
-        holder.categoryTextView.setText(bazars.get(position).getCategory());
+        holder.priceTextView.setText(bazars.get(position).getPrice());
+//        holder.categoryTextView.setText(bazars.get(position).getCategory());
+        holder.phoneTextView.setText(bazars.get(position).getPnumber());
+
         String imagePath = "" + bazars.get(position).getPhoto();
-        Glide.with(context)
-                .load(imagePath)
-                .into(holder.bazarImageView);
+            Glide.with(context)
+                    .load(imagePath)
+                    .into(holder.bazarImageView);
+
 
 
     }
@@ -60,9 +69,11 @@ public class BazarRecyclerViewAdapter extends RecyclerView.Adapter<BazarRecycler
 
         public TextView priceTextView;
 
-        public TextView categoryTextView;
+//        public TextView categoryTextView;
 
         public ImageView bazarImageView;
+
+        public TextView phoneTextView;
 
 
         public ViewHolder(FragmentBazarBinding binding) {
@@ -74,7 +85,8 @@ public class BazarRecyclerViewAdapter extends RecyclerView.Adapter<BazarRecycler
 
             priceTextView = binding.priceBazarText;
 
-            categoryTextView = binding.categoryBazarText;
+//            categoryTextView = binding.categoryBazarText;
+            phoneTextView = binding.phoneBazarText;
 
             bazarImageView = binding.photoBazarImage;
         }

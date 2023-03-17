@@ -18,6 +18,8 @@
         app:navGraph="@navigation/mobile_navigation" />
 
     <fragment
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:id="@+id/fragment_title"
         android:name="com.cl.mykowel.fragments.TitleFragment"
         android:layout_width="match_parent"

@@ -20,21 +20,29 @@ public class ItemBazar {
     @SerializedName("category")
     @Expose
     private String category;
-    @SerializedName("user_id")
-    @Expose
-    private Integer userId;
     @SerializedName("photo")
     @Expose
     private String photo;
     @SerializedName("checked")
     @Expose
     private Integer checked;
+    @SerializedName("pnumber")
+    @Expose
+    private String pnumber;
 
     public ItemBazar(String title, String description, String price, String photo) {
         this.title = title;
         this.description = description;
         this.price = price;
         this.photo = photo;
+    }
+
+    public ItemBazar(String title, String description, String price, String photo, String pnumber) {
+        this.title = title;
+        this.description = description;
+        this.price = price;
+        this.photo = photo;
+        this.pnumber = pnumber;
     }
 
     public Integer getId() {
@@ -77,14 +85,6 @@ public class ItemBazar {
         this.category = category;
     }
 
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
     public String getPhoto() {
         return photo;
     }
@@ -101,4 +101,11 @@ public class ItemBazar {
         this.checked = checked;
     }
 
+    public String getPnumber() {
+        return pnumber;
+    }
+
+    public void setPnumber(String pnumber) {
+        this.pnumber = pnumber;
+    }
 }

@@ -44,7 +44,7 @@ public class AddItemBazarViewModel extends AndroidViewModel {
         ApiService retroServiceInterface = RetroInstanceMyKowel.getKowelService();
         File file = new File(itemBazar.getPhoto());
         SharedPreferences sharedPref = context.getSharedPreferences(String.valueOf(R.string.shared_preferences_user_data), Context.MODE_PRIVATE);
-        String id = sharedPref.getString("id","id");
+        String token = sharedPref.getString("token","token");
 
                 MultipartBody.Part filePart = MultipartBody.Part.createFormData("file", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
 
@@ -53,8 +53,8 @@ public class AddItemBazarViewModel extends AndroidViewModel {
 //        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
 //        MultipartBody.Part filePart = MultipartBody.Part.createFormData("file", file.getName(), requestBody);
 
-        Call<ItemBazar> call = retroServiceInterface.postBazarAddItem(createPartFromString(itemBazar.getTitle()), createPartFromString(itemBazar.getDescription()),createPartFromString(itemBazar.getPrice()),createPartFromString("0179"),createPartFromString(id),filePart);
-
+        Call<ItemBazar> call = retroServiceInterface.postBazarAddItem(token, createPartFromString(itemBazar.getTitle()), createPartFromString(itemBazar.getDescription()),createPartFromString(itemBazar.getPrice()),createPartFromString("0179"),filePart);
+//        createPartFromString(token),
         call.enqueue(new Callback<ItemBazar>() {
             @Override
             public void onResponse(Call<ItemBazar> call, Response<ItemBazar> response) {

@@ -12,6 +12,7 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -32,7 +33,7 @@ public interface ApiService {
 
     @POST("login")
     @Multipart
-    Call<User> postUserLogin (@Part("login") RequestBody login,
+    Call<User> postUserLogin(@Part("login") RequestBody login,
                              @Part("password") RequestBody password);
 
     //get запит для отримання списку всіх контактів
@@ -47,12 +48,14 @@ public interface ApiService {
     @GET("market/get")
     Call<List<ItemBazar>> getItemBazar();
 
+    //    @Header("token") String token
     @POST("market/add")
     @Multipart
-    Call<ItemBazar> postBazarAddItem(@Part("title")RequestBody title,
-                                     @Part("description")RequestBody description,
-                                     @Part("price")RequestBody price,
-                                     @Part("category")RequestBody category,
-                                     @Part("user_id")RequestBody user_id,
-                                     @Part MultipartBody.Part photo);
+    Call<ItemBazar> postBazarAddItem(
+            @Header("token") String token,
+            @Part("title") RequestBody title,
+            @Part("description") RequestBody description,
+            @Part("price") RequestBody price,
+            @Part("category") RequestBody category,
+            @Part MultipartBody.Part photo);
 }

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -48,6 +49,7 @@ public class GreetingActivity extends AppCompatActivity {
     private void haveAccount(){
         SharedPreferences sharedPref = this.getSharedPreferences(String.valueOf(R.string.shared_preferences_user_data), Context.MODE_PRIVATE);
         //перевірка на наявність ключа "token"
+        Log.d("token", sharedPref.getAll().toString());
         if (sharedPref.contains("token")) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);

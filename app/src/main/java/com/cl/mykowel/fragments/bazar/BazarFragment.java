@@ -1,5 +1,7 @@
 package com.cl.mykowel.fragments.bazar;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -30,7 +32,7 @@ import java.util.List;
 
 public class BazarFragment extends Fragment {
 
-
+//    private String token;
     private FloatingActionButton floatingActionButton;
     // призначено для того щоб зєднатись із layout News_list
     private FragmentBazarListBinding binding;
@@ -89,7 +91,9 @@ public class BazarFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        //кнопка додати воно створить фрагмент який перекриє цей
+
+
+                //кнопка додати воно створить фрагмент який перекриє цей
         // а також створить стек із міткою replacement по якій можна буде повернути все назад
         floatingActionButton = view.findViewById(R.id.buttonAddItemBazar);
 

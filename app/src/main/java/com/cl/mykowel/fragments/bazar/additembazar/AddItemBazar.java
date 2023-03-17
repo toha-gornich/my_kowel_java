@@ -4,8 +4,10 @@ package com.cl.mykowel.fragments.bazar.additembazar;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -26,13 +28,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.cl.mykowel.R;
-import com.cl.mykowel.activity.authorization.AuthorizationViewModel;
-import com.cl.mykowel.fragments.bazar.BazarViewModel;
+
 import com.cl.mykowel.model.model_my_kovel.model_bazar.ItemBazar;
 
 /*
@@ -42,6 +44,7 @@ import com.cl.mykowel.model.model_my_kovel.model_bazar.ItemBazar;
  * */
 
 public class AddItemBazar extends Fragment {
+    private ImageView image;
     private String photoPath;
     private ActivityResultLauncher<String> pickImageLauncher;
 
@@ -74,10 +77,16 @@ public class AddItemBazar extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_add_item_bazar, container, false);
 
         viewModel = new ViewModelProvider(this).get(AddItemBazarViewModel.class);
+
+
+        image = view.findViewById(R.id.imageAddItemBazar);
 
         titleEditText = view.findViewById(R.id.titleAddItemEditText);
         descriptionEditText = view.findViewById(R.id.descriptionAddItemEditText);
@@ -94,7 +103,10 @@ public class AddItemBazar extends Fragment {
             @Override
             public void onActivityResult(Uri uri) {
                 // Обробка вибраного фото
-                photoPath = getRealPathFromURI(getContext(), uri);
+                if (uri != null) {
+                    photoPath = getRealPathFromURI(getContext(), uri);
+                    image.setImageURI(uri);
+                }
             }
         });
 
@@ -111,6 +123,7 @@ public class AddItemBazar extends Fragment {
             @Override
             public void onClick(View v) {
                 createItemBazar();
+                saveBackReplacement();
             }
         });
 
@@ -146,24 +159,26 @@ public class AddItemBazar extends Fragment {
             }
         });
     }
-//цей метод робить із юрі силку стрінгову
+
+    //цей метод робить із юрі силку стрінгову
     private String getRealPathFromURI(Context context, Uri uri) {
         String filePath;
-        if (uri.getScheme().equals("content")) {
-            Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
-            if (cursor == null) {
-                filePath = uri.getPath();
-            } else {
-                cursor.moveToFirst();
+            if (uri.getScheme().equals("content")) {
+                Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+                if (cursor == null) {
+                    filePath = uri.getPath();
+                } else {
+                    cursor.moveToFirst();
 
-                int index = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
-                filePath = cursor.getString(index);
-                cursor.close();
+                    int index = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
+                    filePath = cursor.getString(index);
+                    cursor.close();
+                }
+            } else {
+                filePath = uri.getPath();
             }
-        } else {
-            filePath = uri.getPath();
-        }
-        return filePath;
+            return filePath;
+
     }
 
 
@@ -175,11 +190,11 @@ public class AddItemBazar extends Fragment {
         }
     }
 
-    private  void createItemBazar(){
-        String title  = titleEditText.getText().toString();
-        String description  = descriptionEditText.getText().toString();
+    private void createItemBazar() {
+        String title = titleEditText.getText().toString();
+        String description = descriptionEditText.getText().toString();
 //        Double price  = Double.parseDouble(priceEditText.getText().toString());
-        String price  = priceEditText.getText().toString();
+        String price = priceEditText.getText().toString();
 
         ItemBazar itemBazar = new ItemBazar(title, description, price, photoPath);
 

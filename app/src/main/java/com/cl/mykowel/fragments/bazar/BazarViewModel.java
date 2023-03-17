@@ -13,14 +13,16 @@ import java.util.List;
 
 public class BazarViewModel extends AndroidViewModel {
 
-    private final  BazarRepository bazarRepository;
+//    private final String token;
+
+    private final BazarRepository bazarRepository;
 
     private final MutableLiveData<RecyclerView> mBazar;
 
-    public BazarViewModel(Application application){
+    public BazarViewModel(Application application) {
         super(application);
         mBazar = new MutableLiveData<>();
-
+//        this.token = token;
         bazarRepository = new BazarRepository();
     }
 

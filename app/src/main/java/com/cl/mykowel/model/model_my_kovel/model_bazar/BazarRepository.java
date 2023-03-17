@@ -1,8 +1,12 @@
 package com.cl.mykowel.model.model_my_kovel.model_bazar;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
+import com.cl.mykowel.R;
 import com.cl.mykowel.service.ApiService;
 import com.cl.mykowel.service.RetroInstanceMyKowel;
 
@@ -14,11 +18,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BazarRepository {
-
+    private String token;
     private final ArrayList<ItemBazar> itemBazars = new ArrayList<>();
     private final MutableLiveData<List<ItemBazar>> mutableLiveData = new MutableLiveData<>();
 
     public MutableLiveData<List<ItemBazar>> getMutableLiveData(){
+
 
         ApiService apiService = RetroInstanceMyKowel.getKowelService();
 
