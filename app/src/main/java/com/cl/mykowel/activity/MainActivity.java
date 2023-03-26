@@ -1,8 +1,13 @@
 package com.cl.mykowel.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -25,7 +30,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ActivityMainBinding binding;
-    private TextView textView;
+//    private TextView textView;
 
 
     @Override
@@ -34,8 +39,11 @@ public class MainActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        ColorDrawable colorDrawable
+                = new ColorDrawable(Color.parseColor("#FFFFFF"));
+        getSupportActionBar().setBackgroundDrawable(colorDrawable);
 
-        textView = findViewById(R.id.title_text_view);
+//        textView = findViewById(R.id.title_text_view);
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -48,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
-                textView.setText(navDestination.getLabel());
-
+//                textView.setText(navDestination.getLabel());
+                getSupportActionBar().setTitle(navDestination.getLabel());
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 if (fragmentManager.getBackStackEntryCount() > 0) {
                     // Якщо є, повертаємося до попереднього фрагменту з back stack "myBackStack"
@@ -61,7 +69,19 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main_screen, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.account){
+            Intent intent = new Intent(this, AccountActivity.class);
+            startActivity(intent);
+        }
 
-
+        return false;
+    }
 
 }

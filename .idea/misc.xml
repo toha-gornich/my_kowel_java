@@ -98,6 +98,7 @@
         <entry key="..\:/My_directory_photo_project/Projects/Android_project/my_kowel-master/app/src/main/res/drawable/selector_ic_password.xml" value="0.1" />
         <entry key="..\:/My_directory_photo_project/Projects/Android_project/my_kowel-master/app/src/main/res/drawable/selector_ic_phone.xml" value="0.1" />
         <entry key="..\:/My_directory_photo_project/Projects/Android_project/my_kowel-master/app/src/main/res/drawable/spinner_add_item_bazar.xml" value="0.2355" />
+        <entry key="..\:/My_directory_photo_project/Projects/Android_project/my_kowel-master/app/src/main/res/layout/activity_account.xml" value="0.1334853090172239" />
         <entry key="..\:/My_directory_photo_project/Projects/Android_project/my_kowel-master/app/src/main/res/layout/activity_authorization.xml" value="0.2246376811594203" />
         <entry key="..\:/My_directory_photo_project/Projects/Android_project/my_kowel-master/app/src/main/res/layout/activity_greeting.xml" value="0.21422101449275363" />
         <entry key="..\:/My_directory_photo_project/Projects/Android_project/my_kowel-master/app/src/main/res/layout/activity_main.xml" value="0.2545289855072464" />
@@ -105,6 +106,8 @@
         <entry key="..\:/My_directory_photo_project/Projects/Android_project/my_kowel-master/app/src/main/res/layout/fragment_bazar.xml" value="0.536" />
         <entry key="..\:/My_directory_photo_project/Projects/Android_project/my_kowel-master/app/src/main/res/layout/fragment_bazar_list.xml" value="0.2477355072463768" />
         <entry key="..\:/My_directory_photo_project/Projects/Android_project/my_kowel-master/app/src/main/res/layout/fragment_contact_list.xml" value="0.10663627152988855" />
+        <entry key="..\:/My_directory_photo_project/Projects/Android_project/my_kowel-master/app/src/main/res/menu/bottom_nav_menu.xml" value="0.14722222222222223" />
+        <entry key="..\:/My_directory_photo_project/Projects/Android_project/my_kowel-master/app/src/main/res/menu/menu_add_item_bazar.xml" value="0.14722222222222223" />
         <entry key="..\:/My_directory_photo_project/Projects/MyKowel/app/src/main/res/drawable-v21/round_button.xml" value="0.1855" />
         <entry key="..\:/My_directory_photo_project/Projects/MyKowel/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/My_directory_photo_project/Projects/MyKowel/app/src/main/res/drawable/edit_text_border.xml" value="0.2795" />

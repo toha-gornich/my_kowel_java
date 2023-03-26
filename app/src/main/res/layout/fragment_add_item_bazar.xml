@@ -12,7 +12,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/toolbar_color"
+        android:background="@color/white"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -25,10 +25,10 @@
             android:id="@+id/title_addItem_bazar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
             android:text="@string/txt_title_add_item_bazar"
             android:textColor="@color/black"
-
-            android:textSize="@dimen/h1"
+            android:textSize="@dimen/h3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -41,10 +41,13 @@
 
 
     <ScrollView
+
         android:id="@+id/scrollView"
+        android:paddingHorizontal="20dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -65,7 +68,6 @@
                 android:id="@+id/txtTitleNewItemBazar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginBottom="20dp"
                 android:text="@string/txt_title"
                 android:textColor="@color/black" />
@@ -87,7 +89,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height_EditText"
 
-                    android:layout_marginHorizontal="20dp"
                     android:background="@drawable/edit_text_border"
                     android:hint="Назва товару"
                     android:inputType="text"
@@ -102,7 +103,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/txt_description"
 
@@ -124,37 +124,39 @@
 
                     android:id="@+id/descriptionAddItemEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginHorizontal="20dp"
+                    android:layout_height="150dp"
                     android:background="@drawable/edit_text_border"
                     android:hint="Опис товару"
-                    android:inputType="text"
+                    android:inputType="textMultiLine"
                     android:maxLength="500"
-
+                    android:maxLines="10"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp" />
             </com.google.android.material.textfield.TextInputLayout>
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="Виберіть категорію товару"
-                android:textColor="@color/black" />
-            <Spinner
 
-                android:id="@+id/spinner2"
+
+            <TextView
+                android:id="@+id/txtCategoryNewItemBazar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:layout_marginTop="20dp"
-                />
+                android:text="@string/txt_select_category"
+
+                android:textColor="@color/black" />
+
+
+            <Spinner
+                android:id="@+id/spinner"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/txt_price"
                 android:textColor="@color/black" />
@@ -177,7 +179,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height_EditText"
 
-                    android:layout_marginHorizontal="20dp"
                     android:background="@drawable/edit_text_border"
                     android:hint="Ціна"
                     android:inputType="textEmailAddress"
@@ -201,7 +202,6 @@
                 android:id="@+id/btn_add_photo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
                 android:layout_marginVertical="20dp"
                 android:text="Добавити фото" />
 
@@ -209,14 +209,8 @@
                 android:id="@+id/btn_send_item_bazar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="40dp"
                 android:text="відправити" />
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
 
 
         </LinearLayout>
