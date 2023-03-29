@@ -5,9 +5,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
+
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -39,8 +37,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
-import com.cl.mykowel.R;
-import com.cl.mykowel.activity.authorization.AuthorizationActivity;
+
 import com.cl.mykowel.databinding.FragmentAddItemBazarBinding;
 import com.cl.mykowel.model.model_my_kovel.model_bazar.ItemBazar;
 
