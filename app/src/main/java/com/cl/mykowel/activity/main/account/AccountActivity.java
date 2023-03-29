@@ -1,4 +1,4 @@
-package com.cl.mykowel.activity;
+package com.cl.mykowel.activity.main.account;
 
 import androidx.appcompat.app.AppCompatActivity;
 

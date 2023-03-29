@@ -22,6 +22,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -40,6 +41,8 @@ import com.cl.mykowel.R;
 import com.cl.mykowel.databinding.FragmentAddItemBazarBinding;
 import com.cl.mykowel.model.model_my_kovel.model_bazar.ItemBazar;
 
+import java.util.HashMap;
+
 /*
  * Цей фрагмент він створюється для того щоб мати можливість
  * добавляти нове замовлення в базар
@@ -48,7 +51,8 @@ import com.cl.mykowel.model.model_my_kovel.model_bazar.ItemBazar;
 
 public class AddItemBazar extends Fragment {
     private FragmentAddItemBazarBinding binding;
-    private final String[] spinner_list = {"Виберіть категорію", "Одяг і взуття", "Їжа та продукти", "Товари для дітей", "Товари для побуту", "Електроніка та механіка"};
+    private HashMap<String, String> spinnerMap;
+    private final String[] spinner_list = {"Виберіть категорію", "Одяг і взуття","Для саду та городу", "Їжа та продукти", "Товари для дітей", "Товари для побуту", "Електроніка та механіка","Нерухомість"};
     private Spinner spinner;
     //    private ArrayList<String> spinner_list;
     private ArrayAdapter spinerAdapter;
@@ -62,7 +66,8 @@ public class AddItemBazar extends Fragment {
     private EditText titleEditText;
     private EditText descriptionEditText;
     private EditText priceEditText;
-
+    private String category;
+    private String selectedCategory;
     private Button btnAddPhoto;
     private Button btnSendItem;
     private ActionBar toolbar2;
@@ -114,11 +119,23 @@ public class AddItemBazar extends Fragment {
         spinerAdapter = new ArrayAdapter(getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, spinner_list);
         spinerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinerAdapter);
-
+        spinnerMap = new HashMap<>();
+        spinnerMap.put("Одяг і взуття","0134");
+        spinnerMap.put("Їжа та продукти","0179");
+        spinnerMap.put("Для саду та городу","0718");
+        spinnerMap.put("Товари для дітей","0755");
+        spinnerMap.put("Товари для побуту","0759");
+        spinnerMap.put("Електроніка та механіка","0372");
+        spinnerMap.put("Нерухомість","0910");
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedCategory = (String) spinner.getSelectedItem();
+                if(selectedCategory != "Виберіть категорію"){
+                    category = spinnerMap.get(selectedCategory);
+                    Log.d("tron", category);
+                }
 
             }
 
@@ -127,6 +144,8 @@ public class AddItemBazar extends Fragment {
 
             }
         });
+
+
 
         pickImageLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
@@ -227,7 +246,7 @@ public class AddItemBazar extends Fragment {
 //        Double price  = Double.parseDouble(priceEditText.getText().toString());
         String price = priceEditText.getText().toString();
 
-        ItemBazar itemBazar = new ItemBazar(title, description, price, photoPath);
+        ItemBazar itemBazar = new ItemBazar(title, description, price, photoPath, category,"a");
 
         viewModel.createItemBazar(itemBazar, getContext());
 

@@ -13,7 +13,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cl.mykowel.R;
-import com.cl.mykowel.activity.MainActivity;
+import com.cl.mykowel.activity.main.MainActivity;
 import com.cl.mykowel.activity.authorization.AuthorizationActivity;
 @SuppressLint("SourceLockedOrientationActivity")
 

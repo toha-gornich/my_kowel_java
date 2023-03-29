@@ -1,4 +1,4 @@
-package com.cl.mykowel.activity;
+package com.cl.mykowel.activity.main;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -8,8 +8,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +21,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cl.mykowel.R;
+import com.cl.mykowel.activity.main.account.AccountActivity;
 import com.cl.mykowel.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

@@ -10,7 +10,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 import com.cl.mykowel.R;
-import com.cl.mykowel.activity.MainActivity;
+import com.cl.mykowel.activity.main.MainActivity;
 import com.cl.mykowel.model.model_my_kovel.model_user.User;
 import com.cl.mykowel.service.ApiService;
 import com.cl.mykowel.service.RetroInstanceMyKowel;

@@ -30,11 +30,12 @@ public class ItemBazar {
     @Expose
     private String pnumber;
 
-    public ItemBazar(String title, String description, String price, String photo) {
+    public ItemBazar(String title, String description, String price, String photo, String category, String a) {
         this.title = title;
         this.description = description;
         this.price = price;
         this.photo = photo;
+        this.category = category;
     }
 
     public ItemBazar(String title, String description, String price, String photo, String pnumber) {

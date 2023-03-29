@@ -14,7 +14,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.cl.mykowel.R;
-import com.cl.mykowel.activity.MainActivity;
+import com.cl.mykowel.activity.main.MainActivity;
 import com.cl.mykowel.activity.authorization.AuthorizationActivity;
 import com.cl.mykowel.model.model_my_kovel.model_user.User;
 
