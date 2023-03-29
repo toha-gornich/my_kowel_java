@@ -53,7 +53,7 @@ public class AddItemBazarViewModel extends AndroidViewModel {
 //        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
 //        MultipartBody.Part filePart = MultipartBody.Part.createFormData("file", file.getName(), requestBody);
 
-        Call<ItemBazar> call = retroServiceInterface.postBazarAddItem(token, createPartFromString(itemBazar.getTitle()), createPartFromString(itemBazar.getDescription()),createPartFromString(itemBazar.getPrice()),createPartFromString("0179"),filePart);
+        Call<ItemBazar> call = retroServiceInterface.postBazarAddItem(token, createPartFromString(itemBazar.getTitle()), createPartFromString(itemBazar.getDescription()),createPartFromString(itemBazar.getPrice()),createPartFromString(itemBazar.getCategory()),filePart);
 //        createPartFromString(token),
         call.enqueue(new Callback<ItemBazar>() {
             @Override
